@@ -1,5 +1,7 @@
 # import datetime
 import sqlite3
+donn = sqlite3.connect('customer_bought.db')
+d = donn.cursor()
 conn = sqlite3.connect('stock.db')
 c = conn.cursor()
 import time
@@ -37,13 +39,16 @@ def customer():
             if which_categorie == "a" or which_categorie == "food" or which_categorie == "A" or which_categorie == "Food":
                 def food():
                     c.execute('SELECT * FROM food')
-                    dub = c.fetchall()
-                    lala = [item for a in dub for item in a]
-                    print(lala)
+                    print(c.fetchall())
+                    food = c.execute('SELECT * FROM food')
+                    bill = 0
                     print("The name is the first word and the price in the second one")
                     which_food = input("Which food do you want:  ")
-                    print("You have bought " + which_food)
+                    price_amount = c.execute('SELECT price from food WHERE name = ?',which_food,)
+                    for dub in food:
+                        bill += dub[1]
                     
+                    d.execute('INSERT INTO items VALUES("?","?")',(which_food,price_amount))
                 food()
             elif which_categorie == "b" or which_categorie == "electronics" or which_categorie == "B" or which_categorie == "Electronics":
                 def electronics():

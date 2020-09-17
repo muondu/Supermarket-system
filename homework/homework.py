@@ -5,4 +5,4 @@ for unity in num:
 
 print(core)
 
-aka = sum(a[0] for a in num)
+# aka = sum(a[0] for a in num)
