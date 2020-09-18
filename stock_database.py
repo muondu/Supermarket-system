@@ -22,7 +22,7 @@ def insert():
 
 insert()
 conn.commit()
-# c.execute('SELECT * FROM food')
+c.execute('SELECT * FROM food')
 
 # c.execute('SELECT * FROM laundry')
 # c.execute('SELECT * FROM electronics')
