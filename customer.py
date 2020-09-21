@@ -40,15 +40,15 @@ def customer():
             """)
             if which_categorie == "a" or which_categorie == "food" or which_categorie == "A" or which_categorie == "Food":
                 def food():
-                    bill = 0
+                    global food_bill
+                    food_bill = 0
                     c.execute('SELECT * FROM food')
                     print(c.fetchall())
 
                     which_food = input("Which food do you want:  ")
                     if which_food == "bread" or which_food == "Bread":
-                        bill += 50
+                        food_bill += 50
                         print("You have bought break for 50 ksh")
-                        d.execute('INSERT INTO total VALUES(?)',bill,)
                         categories()
                     else:
                         print("I did not understand you")
@@ -56,15 +56,15 @@ def customer():
                 food()
             elif which_categorie == "b" or which_categorie == "electronics" or which_categorie == "B" or which_categorie == "Electronics":
                 def electronics():
-                    bill = 0
+                    global electronics_bill
+                    electronics_bill = 0
                     c.execute('SELECT * FROM electronics')
                     print(c.fetchall())
 
                     which_electronic = input("Which electronic do you want:  ")
                     if which_electronic == "Laptop":
-                        bill += 1000
+                        electronics_bill += 1000
                         print("You have bought a laptop for 1000 ksh")
-                        d.execute('INSERT INTO total VALUES(?)',bill,)
 
                         categories()
                     else:
@@ -74,16 +74,14 @@ def customer():
                 electronics()
             elif which_categorie == "c" or which_categorie == "laundry" or which_categorie == "C" or which_categorie == "Laundry":
                 def laundry():
-                    bill = 0
-                    c.execute('SELECT * FROM laundry')
-                    print(c.fetchall())
+                    global laundry_bill
+                    laundry_bill = 0
 
                     which_laundry = input("Which laundry do you want:  ")
                     if which_laundry == "soap" or which_laundry == "Soap":
-                        bill += 10
+                        laundry_bill += 10
                         print("You have bought soap for 10 ksh")
-                        d.execute('INSERT INTO total VALUES(?)',billb)
-
+                        
                         categories()
                     else:
                         print("I did not understand you")
@@ -93,15 +91,15 @@ def customer():
                 laundry()
             elif which_categorie == "d" or which_categorie == "hardware" or which_categorie == "D" or which_categorie == "Hardware":
                 def hardware():
-                    bill = 0
+                    global laundry_bill
+                    hardware_bill = 0
                     c.execute('SELECT * FROM hardware')
                     print(c.fetchall())
 
                     which_hardware = input("Which hardware do you want:  ")
                     if which_hardware == "wheelbarrow" or which_hardware:
-                        bill += 1000
+                        hardware_bill += 1000
                         print("You have bought a wheelbarrow for 1000 ksh")
-                        d.execute('INSERT INTO total VALUES(?)',bill,)
 
                         categories()
                     else:
@@ -112,14 +110,11 @@ def customer():
                 hardware()
             elif which_categorie == "e" or which_categorie == "E":
                 def total_amount():
-                    # print(bill)
-                    d.execute('SELECT * FROM total')
                     
+                    # print(bill)
                     print("Your total price is ")
-                    total_cash = d.fetchall()
 
-                    dub = [total for a in total_cash for total in a ]
-                    total_bill = sum(dub)
+                    total_bill = s
                     print(total_bill)
                     amount_cash = int(input("Enter amount paying here:  "))
                     if amount_cash < total_bill:
