@@ -4,8 +4,8 @@ conn = sqlite3.connect('homework4.db')
 c = conn.cursor()
 
 def create_table():
-    c.execute('CREATE TABLE IF NOT EXISTS imformation(name TEXT, age INTEGER, class VARCHAR')
-    c.execute('INSERT INTO imformation VALUES("Nesh",11,"7 South")')
+    c.execute('CREATE TABLE IF NOT EXISTS imformation(name TEXT, age INTEGER, class INTEGER)')
+    c.execute('INSERT INTO imformation VALUES("Nesh",11,"7")')
 create_table()
 
 
@@ -30,6 +30,7 @@ if activities == "a":
     def read():
         c.execute('SELECT * FROM imformation')
         print(c.fetchall())
+        # activities()
     read()
 elif activities == "b":
     def update():
@@ -41,8 +42,9 @@ elif activities == "b":
         new_class = input("Enter your class:  ")
         with conn:
             c.execute('UPDATE imformation SET name = ? WHERE name = ?',(old_name,new_name))
-            c.execute('UPDATE game_developers SET age = ? WHERE age = ?',(old_age,new_age))
-            c.execute('UPDATE game_developers SET class = ? WHERE class = ?',(old_class,new_class))
+            c.execute('UPDATE imformation SET age = ? WHERE age = ?',(old_age,new_age))
+            c.execute('UPDATE imformation SET class = ? WHERE class = ?',(old_class,new_class))
+        # activities()
     update()
 
 elif activities == "c":
@@ -50,8 +52,11 @@ elif activities == "c":
     delete_age = int(input("Enter the deleting age:  "))
     delete_class = input("Enter the deleting class:  ")
     def delete():
-        c.execute('DELETE FROM game_developers WHERE name = ?, age = ? AND class = ?',(delete_name,delete_age,delete_class))
+        c.execute('DELETE FROM imformation WHERE name = ?',(delete_name))
+        c.execute('DELETE FROM imformation WHERE age = ?',(delete_age))
+        c.execute('DELETE FROM imformation WHERE class = ?',(delete_class))
         read()
+        # activities()
     delete()
 elif activities == "d":
     print("Good bye.")

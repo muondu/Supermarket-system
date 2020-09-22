@@ -6,4 +6,4 @@ d = donn.cursor()
 
 c.execute('CREATE TABLE IF NOT EXISTS customer_items(name TEXT, price INTEGER)')
 
-d.execute('CREATE TABLE IF NOT EXISTS total(price VARCHAR)')
+d.execute('CREATE TABLE IF NOT EXISTS total(price INTEGER)')

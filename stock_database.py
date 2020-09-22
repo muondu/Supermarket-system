@@ -14,11 +14,13 @@ c.execute('CREATE TABLE IF NOT EXISTS hardware(name TEXT, price INTEGER)')
 
 def insert():
     c.execute('INSERT INTO food VALUES("bread","50")')
+    
     c.execute('INSERT INTO laundry VALUES("Soap","10")')
 
-    c.execute('INSERT INTO electronics VALUES("Laptop","10000")')
 
-    c.execute('INSERT INTO hardware VALUES("Wheelbarrow","1000")')
+    c.execute('INSERT INTO electronics VALUES("Laptop","10 000")')
+
+    c.execute('INSERT INTO hardware VALUES("Wheelbarrow","1 000")')
 
 insert()
 conn.commit()

@@ -49,9 +49,11 @@ def customer():
                     if which_food == "bread" or which_food == "Bread":
                         food_bill += 50
                         print("You have bought break for 50 ksh")
+                        d.execute('INSERT INTO total VALUES(?)',(food_bill,))
+                        donn.commit()
                         categories()
                     else:
-                        print("I did not understand you")
+                        print("I did not understand you:/")
                         food()
                 food()
             elif which_categorie == "b" or which_categorie == "electronics" or which_categorie == "B" or which_categorie == "Electronics":
@@ -63,12 +65,14 @@ def customer():
 
                     which_electronic = input("Which electronic do you want:  ")
                     if which_electronic == "Laptop":
-                        electronics_bill += 1000
+                        electronics_bill += 10000
                         print("You have bought a laptop for 1000 ksh")
+                        d.execute('INSERT INTO total VALUES(?)',(electronics_bill,))
+                        donn.commit()
 
                         categories()
                     else:
-                        print("I did not understand you")
+                        print("I did not understand you:/")
                         electronics()                
 
                 electronics()
@@ -76,22 +80,26 @@ def customer():
                 def laundry():
                     global laundry_bill
                     laundry_bill = 0
+                    c.execute('SELECT * FROM laundry')
+                    print(c.fetchall())
 
                     which_laundry = input("Which laundry do you want:  ")
                     if which_laundry == "soap" or which_laundry == "Soap":
                         laundry_bill += 10
                         print("You have bought soap for 10 ksh")
+                        d.execute('INSERT INTO total VALUES(?)',(laundry_bill,))
+                        donn.commit()
                         
                         categories()
                     else:
-                        print("I did not understand you")
+                        print("I did not understand you:/")
                         laundry()                
  
 
                 laundry()
             elif which_categorie == "d" or which_categorie == "hardware" or which_categorie == "D" or which_categorie == "Hardware":
                 def hardware():
-                    global laundry_bill
+                    global hardware_bill
                     hardware_bill = 0
                     c.execute('SELECT * FROM hardware')
                     print(c.fetchall())
@@ -100,10 +108,12 @@ def customer():
                     if which_hardware == "wheelbarrow" or which_hardware:
                         hardware_bill += 1000
                         print("You have bought a wheelbarrow for 1000 ksh")
+                        d.execute('INSERT INTO total VALUES(?)',(hardware_bill,))
+                        donn.commit()
 
                         categories()
                     else:
-                        print("I did not understand you")
+                        print("I did not understand you:/")
                         hardware()                
 
 
@@ -113,22 +123,27 @@ def customer():
                     
                     # print(bill)
                     print("Your total price is ")
+                    global bill_total
+                    bill_total = 0
 
-                    total_bill = s
-                    print(total_bill)
+                    for dub in d.execute('SELECT * FROM total'):
+                        bill_total += dub[0]
+                        print(bill_total)
+
+                    
                     amount_cash = int(input("Enter amount paying here:  "))
-                    if amount_cash < total_bill:
-                        remaining = dub - amount_cash
-                        print("You are still remaining with " + str(remaining))
+
+                    if amount_cash < bill_total:
+                        print("Please pay more or the equal amount")
                         total_amount()
-                    elif amount_cash > total_bill:
-                        balance = amount_cash - dub
+                    elif amount_cash > bill_total:
+                        balance = amount_cash - bill_total
                         print("Your change is " + str(balance))
-                        print("Good bye")
-                    elif amount_cash == total_bill:
-                        print("Thankyou. Good bye")
+                        print("Good bye.:D")
+                    elif amount_cash == dub:
+                        print("Thankyou. Good bye:)")
                     else:
-                        print("I did not understand you")
+                        print("I did not understand you.:/")
                         total_amount()
                 total_amount()
             else:
@@ -138,5 +153,5 @@ def customer():
 
 
     else:
-        print("I did not understand you")
+        print("I did not understand you:/")
 customer()
