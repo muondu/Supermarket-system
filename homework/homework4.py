@@ -41,9 +41,9 @@ elif activities == "b":
         new_age = int(input("Enter your age:  "))
         new_class = input("Enter your class:  ")
         with conn:
-            c.execute('UPDATE imformation SET name = ? WHERE name = ?',(old_name,new_name))
-            c.execute('UPDATE imformation SET age = ? WHERE age = ?',(old_age,new_age))
-            c.execute('UPDATE imformation SET class = ? WHERE class = ?',(old_class,new_class))
+            c.execute('UPDATE imformation SET name = ? WHERE name = ?',(new_name,old_name))
+            c.execute('UPDATE imformation SET age = ? WHERE age = ?',(new_age,old_age))
+            c.execute('UPDATE imformation SET class = ? WHERE class = ?',(new_class,old_class))
         # activities()
     update()
 
@@ -52,10 +52,10 @@ elif activities == "c":
     delete_age = int(input("Enter the deleting age:  "))
     delete_class = input("Enter the deleting class:  ")
     def delete():
-        c.execute('DELETE FROM imformation WHERE name = ?',(delete_name))
-        c.execute('DELETE FROM imformation WHERE age = ?',(delete_age))
-        c.execute('DELETE FROM imformation WHERE class = ?',(delete_class))
-        read()
+        c.execute('DELETE FROM imformation WHERE name = ?',(delete_name,))
+        c.execute('DELETE FROM imformation WHERE age = ?',(delete_age,))
+        c.execute('DELETE FROM imformation WHERE class = ?',(delete_class,))
+        # read()
         # activities()
     delete()
 elif activities == "d":
