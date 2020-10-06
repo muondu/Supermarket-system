@@ -14,6 +14,7 @@ c.execute('CREATE TABLE IF NOT EXISTS hardware(name TEXT, price INTEGER)')
 
 def insert():
     c.execute('INSERT INTO food VALUES("bread","50")')
+    c.execute('INSERT INTO food VALUES("bread","50")')
     
     c.execute('INSERT INTO laundry VALUES("Soap","10")')
 

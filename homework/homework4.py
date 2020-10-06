@@ -15,8 +15,8 @@ def activities():
     activities = input("""
     These are the activites
 
-    a See everyone
-    b Add someone
+    a See everyonetemperature
+    b Updates someone
     c Remove someone
     
     d Quit program
