@@ -34,7 +34,7 @@
 
 ### About the program
 
-This is a Hotel program made by the youtuber Nero Nesh. In this sytem, you can choose any of the options like going to the swimming pool etc/
+This is a Hotel program made by the youtuber Nero Nesh. In this sytem, you can choose any of the options like going to the swimming pool etc.
 
 
 #### Technology Used
@@ -77,7 +77,7 @@ Add the various things that you are working on.
 
 #### CONTRIBUTING
 
-I would/ We'd love to have your help in making  **{this Nesh Hotel)}** better. The project is a little done but still needs some updates, but if there's an issue you'd like to see addressed sooner rather than later, let (me/us) know id discord and join our group. Here is the link. https://discord.gg/wusUkkw
+I would/ We'd love to have your help in making  **{this Hotel system)}** better. The project is a little done but still needs some updates, but if there's an issue you'd like to see addressed sooner rather than later, let (me/us) know id discord and join our group. Here is the link. https://discord.gg/wusUkkw
 
 For any concerns, please open an [issue{edit this}](https://github.com/muondu/Hotel-sytem/issues), or JUST, [fork the project and send a pull request{edit this}](https://github.com/muondu/Hotel-sytem/pulls) or Join our discord group Link above. 
 
