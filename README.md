@@ -10,7 +10,7 @@
    You can go to the  
     Swimming pool,
     Spa
-    Tennis corts
+    Tennis courts
     Go and eat some food
     Confrence room
     etc
