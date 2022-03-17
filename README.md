@@ -7,13 +7,7 @@
 
   <p align="center">
     This project is a Supermarket sytem <br>
-   You can go to the  
-    Swimming pool,
-    Spa
-    Tennis courts
-    Go and eat some food
-    Confrence room
-    etc
+   You can buy everything yu need in yur home/office here.
     <br>
     </p>
 </p>
